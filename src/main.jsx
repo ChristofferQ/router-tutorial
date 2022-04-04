@@ -5,27 +5,22 @@ import {
   Route,
 } from "react-router-dom";
 import App from "./App";
-import Expenses from "./routes/expenses";
-import Invoices from "./routes/invoices";
-import Invoice from "./routes/invoice";
+import Books from "./routes/books";
+import Add_book from "./routes/add_book";
+import Find_book from "./routes/find_books";
+import Book from "./routes/book";
+
 
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}>
-        <Route path="expenses" element={<Expenses />} />
-        <Route path="invoices" element={<Invoices />}>
-          <Route
-            index
-            element={
-              <main style={{ padding: "1rem" }}>
-                <p>Select an invoice</p>
-              </main>
-            }
-          />
-          <Route path=":invoiceId" element={<Invoice />} />
+      <Route path="/" element={<App />} >
+        <Route path="/books" element={<Books />}>
+          <Route path="bookId" element={<Book />} />
         </Route>
+        <Route path="/add_book" element={<Add_book />} />
+        <Route path="/find_book" element={<Find_book />} />
         <Route
           path="*"
           element={
@@ -36,6 +31,6 @@ render(
         />
       </Route>
     </Routes>
-  </BrowserRouter>,
+  </BrowserRouter >,
   rootElement
 );
